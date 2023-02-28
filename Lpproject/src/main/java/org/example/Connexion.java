@@ -141,7 +141,7 @@ public class Connexion  {
         fr =null;
         FileInputStream serviceAccount = null;
         try {
-            serviceAccount = new FileInputStream("C:\\Users\\KAMUI\\IdeaProjects\\projet_gi5_test\\Lpproject\\src\\main\\resources\\searchproject.json");
+            serviceAccount = new FileInputStream("C:\\Users\\argane\\Desktop\\Lpproject\\src\\main\\resources\\searchproject.json");
         } catch (FileNotFoundException ex) {
             System.err.println("mal9ach l fire token");
         }
@@ -158,13 +158,13 @@ public class Connexion  {
         System.out.println("fin lmochkil");
         FirebaseApp.initializeApp(options);
         fr = FirestoreClient.getFirestore();
-      //  Map<String, Object> data = new HashMap<>();  */
+        //  Map<String, Object> data = new HashMap<>();  */
         System.out.println("fin lmochkil21111");
 
 
     }
 
-//public void insertdata(String nom,String prenom,Map<String ,Object> data){
+    //public void insertdata(String nom,String prenom,Map<String ,Object> data){
 //
 //            try{
 //                if(fr != null){
@@ -181,329 +181,375 @@ public class Connexion  {
 //
 //            }
 //    }
-public void adduser(User us){
+    public void adduser(User us){
 
-            try{
-                if(fr != null){
+        try{
+            if(fr != null){
 
-                    DocumentReference docref =fr.collection("data").document("user").collection("users").document(String.valueOf(us.getIdUser()));
-                    ApiFuture<WriteResult> result =docref.set(us);
-                    System.out.println(""+result.get().getUpdateTime());
+                DocumentReference docref =fr.collection("data").document("user").collection("users").document(String.valueOf(us.getIdUser()));
+                ApiFuture<WriteResult> result =docref.set(us);
+                System.out.println(""+result.get().getUpdateTime());
                 //   DocumentReference docref.collection("activite").document("jamal");
-              ///      ApiFuture<WriteResult> res =docref.collection("activite").document("jamal").set(us);
+                ///      ApiFuture<WriteResult> res =docref.collection("activite").document("jamal").set(us);
 
 
-                    System.out.println("Successful");
-                }
-                else{
-                    System.out.println("our attempt is failed");
-                }
-
-            }catch(InterruptedException | ExecutionException ex){
-
+                System.out.println("Successful");
+            }
+            else{
+                System.out.println("our attempt is failed");
             }
 
-}
-   public void updatUser(int id ,String nom,  String password){
+        }catch(InterruptedException | ExecutionException ex){
 
-            try{
-                if(fr != null){
+        }
 
-                    DocumentReference docref =fr.collection("data").document("user").collection("users").document(String.valueOf(id));
-                    ApiFuture<WriteResult> result =docref.update("nom", nom,"password",password);
-                    System.out.println(""+result.get().getUpdateTime());
+    }
+    public void updatUser(int id ,String nom,  String password){
+
+        try{
+            if(fr != null){
+
+                DocumentReference docref =fr.collection("data").document("user").collection("users").document(String.valueOf(id));
+                ApiFuture<WriteResult> result =docref.update("nom", nom,"password",password);
+                System.out.println(""+result.get().getUpdateTime());
                 //   DocumentReference docref.collection("activite").document("jamal");
 
 
 
-                    System.out.println("Successful");
-                }
-                else{
-                    System.out.println("our attempt is failed");
-                }
-
-            }catch(InterruptedException | ExecutionException ex){
-
+                System.out.println("Successful");
+            }
+            else{
+                System.out.println("our attempt is failed");
             }
 
-}
+        }catch(InterruptedException | ExecutionException ex){
+
+        }
+
+    }
 
 
-public void addservice(service n){
+    public void addservice(service n){
 
-    try{
-                if(fr != null){
+        try{
+            if(fr != null){
 
-                       DocumentReference docref =fr.collection("data").document("service").collection("serv").document(String.valueOf(n.id));
-                    ApiFuture<WriteResult> result =docref.set(n);
-                    System.out.println(""+result.get().getUpdateTime());
+                DocumentReference docref =fr.collection("data").document("service").collection("serv").document(String.valueOf(n.id));
+                ApiFuture<WriteResult> result =docref.set(n);
+                System.out.println(""+result.get().getUpdateTime());
 
 
-                    System.out.println("Successful");
-                }
-                else{
-                    System.out.println("our attempt is failed");
-                }
-
-            }catch(InterruptedException | ExecutionException ex){
-
+                System.out.println("Successful");
+            }
+            else{
+                System.out.println("our attempt is failed");
             }
 
-    //  DocumentReference docref =fr.collection("data").document("service").collection("serv").document("hadk");
-      //              ApiFuture<WriteResult> result =docref.set(se);
-}
+        }catch(InterruptedException | ExecutionException ex){
+
+        }
+
+        //  DocumentReference docref =fr.collection("data").document("service").collection("serv").document("hadk");
+        //              ApiFuture<WriteResult> result =docref.set(se);
+    }
 
 
-public void addactivite(int id,Activite ac){
+    public void addactivite(int id,Activite ac){
 
-   try{
-                if(fr != null){
+        try{
+            if(fr != null){
 
-                    DocumentReference docref =fr.collection("data").document("user").collection("users").document(String.valueOf(id));
-                   // ApiFuture<WriteResult> result =docref.set(ac);
+                DocumentReference docref =fr.collection("data").document("user").collection("users").document(String.valueOf(id));
+                // ApiFuture<WriteResult> result =docref.set(ac);
                 //   DocumentReference docref.collection("activite").document("jamal");
-                    ApiFuture<WriteResult> res =docref.collection("activite").document(String.valueOf(ac.getIdActivite())).set(ac);
-                    System.out.println(""+res.get().getUpdateTime());
+                ApiFuture<WriteResult> res =docref.collection("activite").document(String.valueOf(ac.getIdActivite())).set(ac);
+                System.out.println(""+res.get().getUpdateTime());
 // String.valueOf(ac.getIdActivite())
 
-                    System.out.println("Successful");
-                }
-                else{
-                    System.out.println("our attempt is failed");
-                }
-
-            }catch(InterruptedException | ExecutionException ex){
-
+                System.out.println("Successful");
             }
-}
+            else{
+                System.out.println("our attempt is failed");
+            }
 
-public void addraport(int id,rapport ra){
+        }catch(InterruptedException | ExecutionException ex){
 
-   try{
-                if(fr != null){
+        }
+    }
 
-                    DocumentReference docref =fr.collection("data").document("user").collection("users").document(String.valueOf(id));
-                   // ApiFuture<WriteResult> result =docref.set(ac);
+    public void addraport(int id,rapport ra){
+
+        try{
+            if(fr != null){
+
+                DocumentReference docref =fr.collection("data").document("user").collection("users").document(String.valueOf(id));
+                // ApiFuture<WriteResult> result =docref.set(ac);
                 //   DocumentReference docref.collection("activite").document("jamal");
-                    ApiFuture<WriteResult> res =docref.collection("rapports").document(String.valueOf(ra.getIdActivite())).set(ra);
-                    System.out.println(""+res.get().getUpdateTime());
+                ApiFuture<WriteResult> res =docref.collection("rapports").document(String.valueOf(ra.getIdActivite())).set(ra);
+                System.out.println(""+res.get().getUpdateTime());
 
 
-                    System.out.println("Successful");
-                }
-                else{
-                    System.out.println("our attempt is failed");
-                }
-
-            }catch(InterruptedException | ExecutionException ex){
-
+                System.out.println("Successful");
             }
-}
+            else{
+                System.out.println("our attempt is failed");
+            }
+
+        }catch(InterruptedException | ExecutionException ex){
+
+        }
+    }
 
 
 
-public void addimagesAn(int iduser,int idact,Images im){
-     try{
-                if(fr != null){
+    public void addimagesAn(int iduser,int idact,Images im){
+        try{
+            if(fr != null){
 
-                    DocumentReference docref =fr.collection("data").document("user").collection("users").document(String.valueOf(iduser));
-                   // ApiFuture<WriteResult> result =docref.set(ac);
+                DocumentReference docref =fr.collection("data").document("user").collection("users").document(String.valueOf(iduser));
+                // ApiFuture<WriteResult> result =docref.set(ac);
                 //   DocumentReference docref.collection("activite").document("jamal");
-                    ApiFuture<WriteResult> res =docref.collection("activite").document(String.valueOf(idact))
-                            .collection("images").document(String.valueOf(im.getid())).set(im);
-                    System.out.println(""+res.get().getUpdateTime());
+                ApiFuture<WriteResult> res =docref.collection("activite").document(String.valueOf(idact))
+                        .collection("images").document(String.valueOf(im.getid())).set(im);
+                System.out.println(""+res.get().getUpdateTime());
 
 
-                    System.out.println("Successful");
-                }
-                else{
-                    System.out.println("our attempt is failed");
-                }
-
-            }catch(InterruptedException | ExecutionException ex){
-
+                System.out.println("Successful");
+            }
+            else{
+                System.out.println("our attempt is failed");
             }
 
+        }catch(InterruptedException | ExecutionException ex){
 
-}
+        }
 
-public void addimagesRa(int iduser,int idact,Images im){
-     try{
-                if(fr != null){
 
-                    DocumentReference docref =fr.collection("data").document("user").collection("users").document(String.valueOf(iduser));
-                   // ApiFuture<WriteResult> result =docref.set(ac);
+    }
+
+    public void addimagesRa(int iduser,int idact,Images im){
+        try{
+            if(fr != null){
+
+                DocumentReference docref =fr.collection("data").document("user").collection("users").document(String.valueOf(iduser));
+                // ApiFuture<WriteResult> result =docref.set(ac);
                 //   DocumentReference docref.collection("activite").document("jamal");
-                    ApiFuture<WriteResult> res =docref.collection("rapports").document(String.valueOf(idact))
-                            .collection("images").document(String.valueOf(im.getid())).set(im);
-                    System.out.println(""+res.get().getUpdateTime());
+                ApiFuture<WriteResult> res =docref.collection("rapports").document(String.valueOf(idact))
+                        .collection("images").document(String.valueOf(im.getid())).set(im);
+                System.out.println(""+res.get().getUpdateTime());
 
 
-                    System.out.println("Successful");
-                }
-                else{
-                    System.out.println("our attempt is failed");
-                }
-
-            }catch(InterruptedException | ExecutionException ex){
-
+                System.out.println("Successful");
+            }
+            else{
+                System.out.println("our attempt is failed");
             }
 
+        }catch(InterruptedException | ExecutionException ex){
 
-}
-
-public void updateservice(int id,String n){
-
-    try{
-                if(fr != null){
-
-                       DocumentReference docref =fr.collection("data").document("service").collection("serv").document(String.valueOf(id));
-                    ApiFuture<WriteResult> result =docref.update("name", n);
-                    System.out.println(""+result.get().getUpdateTime());
+        }
 
 
-                    System.out.println("Successful");
-                }
-                else{
-                    System.out.println("our attempt is failed");
-                }
+    }
 
-            }catch(InterruptedException | ExecutionException ex){
+    public void updateservice(int id,String n){
 
+        try{
+            if(fr != null){
+
+                DocumentReference docref =fr.collection("data").document("service").collection("serv").document(String.valueOf(id));
+                ApiFuture<WriteResult> result =docref.update("name", n);
+                System.out.println(""+result.get().getUpdateTime());
+
+
+                System.out.println("Successful");
+            }
+            else{
+                System.out.println("our attempt is failed");
             }
 
-    //  DocumentReference docref =fr.collection("data").document("service").collection("serv").document("hadk");
-      //              ApiFuture<WriteResult> result =docref.set(se);
-}
+        }catch(InterruptedException | ExecutionException ex){
+
+        }
+
+        //  DocumentReference docref =fr.collection("data").document("service").collection("serv").document("hadk");
+        //              ApiFuture<WriteResult> result =docref.set(se);
+    }
 
 
-public void updatactivite(int iduser,int idac,String sujetup,String lieu,String description,Date da,Images img){
+    public void updatactivite(int iduser,int idac,String sujetup,String lieu,String description,Date da,Images img){
 
-   try{
-                if(fr != null){
+        try{
+            if(fr != null){
 
-                    DocumentReference docref =fr.collection("data").document("user").collection("users").document(String.valueOf(iduser));
-                   // ApiFuture<WriteResult> result =docref.set(ac);
+                DocumentReference docref =fr.collection("data").document("user").collection("users").document(String.valueOf(iduser));
+                // ApiFuture<WriteResult> result =docref.set(ac);
                 //   DocumentReference docref.collection("activite").document("jamal");
-                   ApiFuture<WriteResult> res =docref.collection("activite").document(String.valueOf(idac)).update("lieu", lieu,"sujet",sujetup,"nomActivite",description,"Date",da);
-                 System.out.println(""+res.get().getUpdateTime());
+                ApiFuture<WriteResult> res =docref.collection("activite").document(String.valueOf(idac)).update("lieu", lieu,"sujet",sujetup,"nomActivite",description,"Date",da);
+                System.out.println(""+res.get().getUpdateTime());
 //
 
-                    System.out.println("Successful");
-                }
-                else{
-                    System.out.println("our attempt is failed");
-                }
-
-            }catch(InterruptedException | ExecutionException ex){
-
+                System.out.println("Successful");
             }
-}
+            else{
+                System.out.println("our attempt is failed");
+            }
 
-public void updatrapport(int iduser,int idac,String sujetup,String lieu,String description,Date da,String pdf,Images img){
+        }catch(InterruptedException | ExecutionException ex){
 
-   try{
-                if(fr != null){
+        }
+    }
 
-                    DocumentReference docref =fr.collection("data").document("user").collection("users").document(String.valueOf(iduser));
-                   // ApiFuture<WriteResult> result =docref.set(ac);
+    public void updatrapport(int iduser,int idac,String sujetup,String lieu,String description,Date da,String pdf,Images img){
+
+        try{
+            if(fr != null){
+
+                DocumentReference docref =fr.collection("data").document("user").collection("users").document(String.valueOf(iduser));
+                // ApiFuture<WriteResult> result =docref.set(ac);
                 //   DocumentReference docref.collection("activite").document("jamal");
-                   ApiFuture<WriteResult> res =docref.collection("activite").document(String.valueOf(idac)).update("lieu", lieu,"sujet",sujetup,"nomActivite",description,"Date",da);
-                 System.out.println(""+res.get().getUpdateTime());
+                ApiFuture<WriteResult> res =docref.collection("activite").document(String.valueOf(idac)).update("lieu", lieu,"sujet",sujetup,"nomActivite",description,"Date",da);
+                System.out.println(""+res.get().getUpdateTime());
 //
 
-                    System.out.println("Successful");
-                }
-                else{
-                    System.out.println("our attempt is failed");
-                }
+                System.out.println("Successful");
+            }
+            else{
+                System.out.println("our attempt is failed");
+            }
 
-            }catch(InterruptedException | ExecutionException ex){
+        }catch(InterruptedException | ExecutionException ex){
+
+        }
+    }
+
+    public int numberActivite() throws InterruptedException, ExecutionException {
+        int i =0;
+        ApiFuture<QuerySnapshot> future = fr.collection("data").document("user").collection("users").get();
+// future.get() blocks on response
+        List<QueryDocumentSnapshot> documents = future.get().getDocuments();
+        for (QueryDocumentSnapshot document : documents) {
+            System.out.println(document.getId());
+            ApiFuture<QuerySnapshot> fu = (ApiFuture<QuerySnapshot>) fr.collection("data").document("user").collection("users")
+                    .document(document.getId()).collection("activite").get();
+            System.out.println(document.getId());
+            List<QueryDocumentSnapshot> docu = fu.get().getDocuments();
+            for (QueryDocumentSnapshot d : docu) {
+               i++;
+            }
+        }
+        return i;
+    }
+
+
+    public ArrayList<Activite> voirActivite() throws InterruptedException, ExecutionException {
+        ArrayList<Activite> acts = new ArrayList<>();
+        ApiFuture<QuerySnapshot> future = fr.collection("data").document("user").collection("users").get();
+// future.get() blocks on response
+        List<QueryDocumentSnapshot> documents = future.get().getDocuments();
+        for (QueryDocumentSnapshot document : documents) {
+            System.out.println(document.getId());
+            ApiFuture<QuerySnapshot> fu = (ApiFuture<QuerySnapshot>) fr.collection("data").document("user").collection("users")
+                    .document(document.getId()).collection("activite").get();
+            System.out.println(document.getId());
+            List<QueryDocumentSnapshot> docu = fu.get().getDocuments();
+            for (QueryDocumentSnapshot d : docu) {
+                Activite activite = new Activite(d.getString("sujet"),d.getString("idCategorie"), d.getString("lieu"), d.getString("date"), d.getString("details"), d.getString("image"));
+                //     System.out.println(d.getId()+"--**--"+ d.getString("sujet"));
+                acts.add(activite);
 
             }
-}
+        }
+        return acts;
+    }
+    public void MesActivite(int iduser) throws InterruptedException, ExecutionException {
 
-   public ArrayList<Activite> voirActivite() throws InterruptedException, ExecutionException {
-ArrayList<Activite> acts = new ArrayList<>();
-ApiFuture<QuerySnapshot> future = fr.collection("data").document("user").collection("users").get();
+
+        ApiFuture<QuerySnapshot> fu = (ApiFuture<QuerySnapshot>) fr.collection("data").document("user").collection("users")
+                .document(String.valueOf(iduser)).collection("activite").get();
+        List<QueryDocumentSnapshot> docu = fu.get().getDocuments();
+        for (QueryDocumentSnapshot d : docu) {
+            System.out.println(d.getId()+"--**--"+ d.getString("sujet"));
+
+        }
+    }
+
+    public int numberRapport() throws InterruptedException, ExecutionException {
+int i =0;
+        ApiFuture<QuerySnapshot> future = fr.collection("data").document("user").collection("users").get();
 // future.get() blocks on response
-List<QueryDocumentSnapshot> documents = future.get().getDocuments();
-for (QueryDocumentSnapshot document : documents) {
-  System.out.println(document.getId());
- ApiFuture<QuerySnapshot> fu = (ApiFuture<QuerySnapshot>) fr.collection("data").document("user").collection("users")
-         .document(document.getId()).collection("activite").get();
- System.out.println(document.getId());
- List<QueryDocumentSnapshot> docu = fu.get().getDocuments();
-         for (QueryDocumentSnapshot d : docu) {
-             Activite activite = new Activite(d.getString("sujet"),d.getString("idCategorie"), d.getString("lieu"), d.getString("date"), d.getString("details"),d.getString("image"));
-                 System.out.println(d.getId()+"--**--"+ d.getString("sujet"));
-                 acts.add(activite);
+        List<QueryDocumentSnapshot> documents = future.get().getDocuments();
+        for (QueryDocumentSnapshot document : documents) {
+            System.out.println(document.getId());
+            ApiFuture<QuerySnapshot> fu = (ApiFuture<QuerySnapshot>) fr.collection("data").document("user").collection("users")
+                    .document(document.getId()).collection("rapports").get();
+            List<QueryDocumentSnapshot> docu = fu.get().getDocuments();
+            for (QueryDocumentSnapshot d : docu) {
 
-         }
-   }
-   return acts;
-   }
-public void MesActivite(int iduser) throws InterruptedException, ExecutionException {
+                i++;
+            }
+        }
+return i;
+    }
 
 
- ApiFuture<QuerySnapshot> fu = (ApiFuture<QuerySnapshot>) fr.collection("data").document("user").collection("users")
-         .document(String.valueOf(iduser)).collection("activite").get();
- List<QueryDocumentSnapshot> docu = fu.get().getDocuments();
-         for (QueryDocumentSnapshot d : docu) {
-                 System.out.println(d.getId()+"--**--"+ d.getString("sujet"));
+    public void voirRapport() throws InterruptedException, ExecutionException {
 
-         }
-}
-
-
-
-
-public void voirRapport() throws InterruptedException, ExecutionException {
-
-ApiFuture<QuerySnapshot> future = fr.collection("data").document("user").collection("users").get();
+        ApiFuture<QuerySnapshot> future = fr.collection("data").document("user").collection("users").get();
 // future.get() blocks on response
-List<QueryDocumentSnapshot> documents = future.get().getDocuments();
-for (QueryDocumentSnapshot document : documents) {
-  System.out.println(document.getId());
- ApiFuture<QuerySnapshot> fu = (ApiFuture<QuerySnapshot>) fr.collection("data").document("user").collection("users")
-         .document(document.getId()).collection("rapports").get();
- System.out.println(document.getId());
- List<QueryDocumentSnapshot> docu = fu.get().getDocuments();
-         for (QueryDocumentSnapshot d : docu) {
-                 System.out.println(d.getId());
+        List<QueryDocumentSnapshot> documents = future.get().getDocuments();
+        for (QueryDocumentSnapshot document : documents) {
+            System.out.println(document.getId());
+            ApiFuture<QuerySnapshot> fu = (ApiFuture<QuerySnapshot>) fr.collection("data").document("user").collection("users")
+                    .document(document.getId()).collection("rapports").get();
+            System.out.println(document.getId());
+            List<QueryDocumentSnapshot> docu = fu.get().getDocuments();
+            for (QueryDocumentSnapshot d : docu) {
+                System.out.println(d.getId());
 
-         }
-}
+            }
+        }
 
-}
-public void MesRapports(int iduser) throws InterruptedException, ExecutionException {
+    }
+    public void MesRapports(int iduser) throws InterruptedException, ExecutionException {
 
- ApiFuture<QuerySnapshot> fu = (ApiFuture<QuerySnapshot>) fr.collection("data").document("user").collection("users")
-         .document(String.valueOf(iduser)).collection("rapports").get();
- List<QueryDocumentSnapshot> docu = fu.get().getDocuments();
-         for (QueryDocumentSnapshot d : docu) {
-                 System.out.println(d.getId()+"--**--"+ d.getString("sujet"));
+        ApiFuture<QuerySnapshot> fu = (ApiFuture<QuerySnapshot>) fr.collection("data").document("user").collection("users")
+                .document(String.valueOf(iduser)).collection("rapports").get();
+        List<QueryDocumentSnapshot> docu = fu.get().getDocuments();
+        for (QueryDocumentSnapshot d : docu) {
+            System.out.println(d.getId()+"--**--"+ d.getString("sujet"));
 
-         }
-}
+        }
+    }
 
 
-public ArrayList<String> selectService() throws InterruptedException, ExecutionException {
-    ArrayList<String> list = new ArrayList<>();
+    public ArrayList<String> selectService() throws InterruptedException, ExecutionException {
+        ArrayList<String> list = new ArrayList<>();
 
- ApiFuture<QuerySnapshot> fu = (ApiFuture<QuerySnapshot>) fr.collection("data").document("service").collection("serv").get();
- List<QueryDocumentSnapshot> docu = fu.get().getDocuments();
-         for (QueryDocumentSnapshot d : docu) {
-                 System.out.println(d.getId()+"--**--"+ d.getString("name"));
-                 list.add(d.getString("name"));
-         }
-        return null;
+        ApiFuture<QuerySnapshot> fu = (ApiFuture<QuerySnapshot>) fr.collection("data").document("service").collection("serv").get();
+        List<QueryDocumentSnapshot> docu = fu.get().getDocuments();
+        for (QueryDocumentSnapshot d : docu) {
+            System.out.println(d.getId()+"--**--"+ d.getString("Nom"));
+            list.add(d.getString("Nom"));
+        }
+        return list;
 
-}
+    }
 
-    // Variables declaration - do not modify//GEN-BEGIN:variables
-//    private javax.swing.JButton jButton1;
-    // End of variables declaration//GEN-END:variables
+    public ArrayList<String> getAllCategorie() throws ExecutionException, InterruptedException {
+        ArrayList<String> list = new ArrayList<>();
+
+        ApiFuture<QuerySnapshot> fu = (ApiFuture<QuerySnapshot>) fr.collection("data").document("Categorie").collection("Categorie").get();
+        List<QueryDocumentSnapshot> docu = fu.get().getDocuments();
+        for (QueryDocumentSnapshot d : docu) {
+            System.out.println(d.getId()+"--**--"+ d.getString("Nom"));
+            list.add(d.getString("Nom"));
+        }
+        return list;
+
+    }
+
+
 
 
 
@@ -531,7 +577,7 @@ public ArrayList<String> selectService() throws InterruptedException, ExecutionE
         File pngImage = fileChooser.showOpenDialog(stage);
         if (pngImage != null) {
             try {
-                 imageBytes = Files.readAllBytes(pngImage.toPath());
+                imageBytes = Files.readAllBytes(pngImage.toPath());
             } catch (IOException e) {
                 System.err.println("File couldn't be read to byte[].");
             }

@@ -11,6 +11,7 @@ org\example\DashboordRSController.class
 org\example\MembersRSController.class
 org\example\AjouterapportRSController.class
 org\example\DashboordADController.class
+org\example\Composant$5.class
 org\example\ArchiveADController.class
 org\example\Composant.class
 org\example\MembersController.class
