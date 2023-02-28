@@ -195,7 +195,7 @@
                                     </Label>
                                  </children>
                               </VBox>
-                              <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="66.0" prefWidth="207.0" text="600" textFill="#170101">
+                              <Label fx:id="totalaa" alignment="CENTER" contentDisplay="CENTER" prefHeight="66.0" prefWidth="207.0" text="600" textFill="#170101">
                                  <font>
                                     <Font name="System Bold" size="30.0" />
                                  </font>
@@ -300,7 +300,7 @@
                                     </Label>
                                  </children>
                               </VBox>
-                              <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="66.0" prefWidth="207.0" text="600">
+                              <Label fx:id="totalrapp" alignment="CENTER" contentDisplay="CENTER" prefHeight="66.0" prefWidth="207.0" text="600">
                                  <font>
                                     <Font name="System Bold" size="30.0" />
                                  </font>

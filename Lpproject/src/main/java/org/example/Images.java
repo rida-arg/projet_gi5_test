@@ -11,22 +11,16 @@ package org.example;
 public class Images {
     private static int idimg;
     private String imgs;
-    
     public Images(String img){
         idimg++;
         this.imgs = img;
-    
     }
-    
      public int getid() {
         return idimg;
     }
-
-    
      public String getName() {
         return imgs;
     }
-
     public void setName(String name) {
         this.imgs = name;
     }

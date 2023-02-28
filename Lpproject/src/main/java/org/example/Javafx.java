@@ -25,7 +25,7 @@ public class Javafx extends Application {
       String javaversion = System.getProperty("java.version");
       String javafxversion = System.getProperty("javafx.version");
         Label label = new Label("hakiiim");
-        URL url = new File("src/main/java/org/example/Annonce.fxml").toURI().toURL();
+        URL url = new File("src/main/java/org/example/Members.fxml").toURI().toURL();
         Parent root = FXMLLoader.load(url);
         Scene scene = new Scene(root);
         stage.setScene(scene);

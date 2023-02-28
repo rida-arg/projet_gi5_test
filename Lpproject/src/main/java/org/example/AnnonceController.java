@@ -22,10 +22,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.DatePicker;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.image.PixelFormat;
@@ -53,36 +50,23 @@ int compteur=0;
     private Button validerann;
     @FXML
     private DatePicker date_txt;
-
     @FXML
     private TextField details_txt;
-
     @FXML
     private ImageView image_txt;
     @FXML
     private Button image_btn;
-
     @FXML
     private TextField lieu_txt;
-
     @FXML
     private TextField sujet_txt;
-
     @FXML
     private ComboBox<?> type_txt;
-
-
-
-
-
+    @FXML
+    private Tab tab2;
     public static void main(String[] args) {
         launch(args);
     }
-
-
-
-
-
     public void showDashboardRS(ActionEvent event) throws IOException {
         URL url = new File("src/main/java/org/example/DashboordRS.fxml").toURI().toURL();
         Parent root = FXMLLoader.load(url);
@@ -91,7 +75,6 @@ int compteur=0;
         stage.setScene(scene);
         stage.show();
     }
-
     public void showArchiveRS(ActionEvent event) throws IOException {
         URL url = new File("src/main/java/org/example/Archive.fxml").toURI().toURL();
         Parent root = FXMLLoader.load(url);
@@ -100,7 +83,6 @@ int compteur=0;
         stage.setScene(scene);
         stage.show();
     }
-
     public void showMembersRS(ActionEvent event) throws IOException {
         URL url = new File("src/main/java/org/example/MembersRS.fxml").toURI().toURL();
         Parent root = FXMLLoader.load(url);
@@ -109,17 +91,14 @@ int compteur=0;
         stage.setScene(scene);
         stage.show();
     }
-
     public void showSetting(ActionEvent event) throws IOException {
         URL url = new File("src/main/java/org/example/SettingsAD.fxml").toURI().toURL();
         Parent root = FXMLLoader.load(url);
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         Scene scene = new Scene(root);
         stage.setScene(scene);
-
         stage.show();
     }
-
     public void showAnnonceRS(ActionEvent event) throws IOException {
         URL url = new File("src/main/java/org/example/Annonce.fxml").toURI().toURL();
         Parent root = FXMLLoader.load(url);
@@ -134,7 +113,6 @@ int compteur=0;
         FileChooser fileChooser = new FileChooser();
         fileChooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("PNG", "*.png"));
         File pngImage = fileChooser.showOpenDialog(stage);
-
          uri = pngImage.toURI();
         uri.toString();
         System.err.println(uri+"   chof hada");
@@ -176,6 +154,23 @@ int compteur=0;
 
     }   **/
 
+
+
+
+//    public void selectact(){
+//        cn = new Connexion();
+//        try {
+//            cn.createconnection();
+//        } catch (InterruptedException e) {
+//            throw new RuntimeException(e);
+//        } catch (ExecutionException e) {
+//            throw new RuntimeException(e);
+//        }
+//        cn.MesActivite();
+//    }
+
+
+
     public void AjouterAnn() throws ExecutionException, InterruptedException {
 
        // StorageReference storageReference = FirebaseStorage.getInstance().getReference().child("Android Images")
@@ -202,6 +197,7 @@ int compteur=0;
     }
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+
          cn = new Connexion();
         try {
             cn.createconnection();
@@ -210,7 +206,7 @@ int compteur=0;
         } catch (ExecutionException e) {
             throw new RuntimeException(e);
         }
-
+       // tab2.setOnSelectionChanged(event -> selectact);
 
         // TODO
         validerann.setOnAction(event -> {
@@ -223,6 +219,5 @@ int compteur=0;
             }
         });
         image_btn.setOnAction(event ->importimage(new Stage()) );
-
     }
 }

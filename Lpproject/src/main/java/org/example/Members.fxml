@@ -94,14 +94,6 @@
                                                             <Font size="14.0" />
                                                          </font>
                                                       </Label>
-                                                      <Label text="12/30/2022">
-                                                         <HBox.margin>
-                                                            <Insets left="70.0" />
-                                                         </HBox.margin>
-                                                         <font>
-                                                            <Font size="14.0" />
-                                                         </font>
-                                                      </Label>
                                                       <Label text="email">
                                                          <font>
                                                             <Font size="14.0" />
@@ -144,14 +136,6 @@
                                                       <Label text="Member 1">
                                                          <HBox.margin>
                                                             <Insets left="50.0" />
-                                                         </HBox.margin>
-                                                         <font>
-                                                            <Font size="14.0" />
-                                                         </font>
-                                                      </Label>
-                                                      <Label text="12/30/2022">
-                                                         <HBox.margin>
-                                                            <Insets left="70.0" />
                                                          </HBox.margin>
                                                          <font>
                                                             <Font size="14.0" />
@@ -204,14 +188,6 @@
                                                             <Font size="14.0" />
                                                          </font>
                                                       </Label>
-                                                      <Label text="12/30/2022">
-                                                         <HBox.margin>
-                                                            <Insets left="70.0" />
-                                                         </HBox.margin>
-                                                         <font>
-                                                            <Font size="14.0" />
-                                                         </font>
-                                                      </Label>
                                                       <Label text="email">
                                                          <font>
                                                             <Font size="14.0" />
@@ -259,14 +235,6 @@
                                                             <Font size="14.0" />
                                                          </font>
                                                       </Label>
-                                                      <Label text="12/30/2022">
-                                                         <HBox.margin>
-                                                            <Insets left="70.0" />
-                                                         </HBox.margin>
-                                                         <font>
-                                                            <Font size="14.0" />
-                                                         </font>
-                                                      </Label>
                                                       <Label text="email">
                                                          <font>
                                                             <Font size="14.0" />
@@ -309,14 +277,6 @@
                                                       <Label text="Member 1">
                                                          <HBox.margin>
                                                             <Insets left="50.0" />
-                                                         </HBox.margin>
-                                                         <font>
-                                                            <Font size="14.0" />
-                                                         </font>
-                                                      </Label>
-                                                      <Label text="12/30/2022">
-                                                         <HBox.margin>
-                                                            <Insets left="70.0" />
                                                          </HBox.margin>
                                                          <font>
                                                             <Font size="14.0" />
@@ -446,7 +406,7 @@
                                                          </VBox.margin>
                                                       </HBox>
                                                       <HBox prefHeight="46.0" prefWidth="500.0" />
-                                                      <Button fx:id="ajouter_btn" mnemonicParsing="false"  prefHeight="39.0" prefWidth="82.0" style="-fx-background-color: #32CD32; -fx-background-radius: 15;" text="Ajouter" textFill="WHITE">
+                                                      <Button fx:id="ajouter_btn" mnemonicParsing="false" prefHeight="39.0" prefWidth="82.0" style="-fx-background-color: #32CD32; -fx-background-radius: 15;" text="Ajouter" textFill="WHITE">
                                                          <font>
                                                             <Font size="16.0" />
                                                          </font>

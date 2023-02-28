@@ -24,6 +24,7 @@ public class Activite {
     private String  Categorie;
     private String image;
 
+
    // private String image;
 
 
@@ -49,23 +50,18 @@ public class Activite {
          this.details=details;
         this.image=image;
     }
-
     public String getDetails() {
         return details;
     }
-
     public void setDetails(String details) {
         this.details = details;
     }
-
     public String getCategorie() {
         return Categorie;
     }
-
  /*   public byte getImage() {
         return image;
     }
-
     public void setImage(byte image) {
         this.image = image;
     }   */

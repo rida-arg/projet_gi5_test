@@ -44,7 +44,7 @@ double i =20;
     
     ImageView imgv = new ImageView();
     ImageView imgv2 = new ImageView();
-
+    ImageView imgv3 = new ImageView();
     
     HBox hbp = new HBox();
     HBox hb1 = new HBox();
@@ -53,11 +53,12 @@ double i =20;
     Button btn1 = new Button("modifier");
     Button btn2 = new Button("supprimer");
     Button btn3 = new Button("voire plus");
-
+    Button btn4 = new Button("Valider");
 
     Label lb1 = new Label("sejet1");
     Label lb2 = new Label("12/05/2022");
-    
+    Label lb3 = new Label("nom");
+    Label lb4 = new Label("email");
     public void imgstyle(){
        // Image image = new Image("/images/9648301_38767%201.png");
       
@@ -70,14 +71,18 @@ double i =20;
     }
      public void img2style(){
         imgv2.setImage(new Image("@anno.png"));
-      
-        
         imgv2.setFitWidth(53);
         imgv2.setFitHeight(50);
         imgv2.setPickOnBounds(true);
         imgv2.setPreserveRatio(true); 
     }
-    
+    public void img3style(){
+        imgv3.setImage(new Image("@pic.png"));
+        imgv3.setFitWidth(53);
+        imgv3.setFitHeight(50);
+        imgv3.setPickOnBounds(true);
+        imgv3.setPreserveRatio(true);
+    }
     // hb1 ----------------------------
     public void hb1style(){
         
@@ -134,10 +139,8 @@ double i =20;
        btn2.setText("Supprimer");
        btn2.setTextFill(Paint.valueOf("C80202"));
        btn2.setPadding(new Insets(0,10,0,0));
-
        btn2.setFont(Font.font("system", FontWeight.NORMAL, FontPosture.REGULAR, 13));
     }
-    
      public void btn3style(){
         btn3.setLayoutX(168);
        btn3.setLayoutY(28);
@@ -145,49 +148,108 @@ double i =20;
        btn3.setPrefHeight(35);
        btn3.setPrefWidth(215);
        btn3.setStyle("-fx-border-color: #031789; -fx-border-radius: 15;-fx-background-radius: 15; -fx-background-color: ffff");
-       
        btn3.setTextFill(Paint.valueOf("031789"));
        btn3.setPadding(new Insets(0,10,0,0));
-
        btn3.setFont(Font.font("system", FontWeight.NORMAL, FontPosture.REGULAR, 13));
     }
-    
-     
-     
-     
+    public void btn4style(){
+        btn4.setId("btnok");
+        btn4.setMnemonicParsing(false);
+        btn4.setPrefHeight(35);
+        btn4.setPrefWidth(94);
+        btn4.setStyle("-fx-border-color: #329C0D; -fx-border-radius: 15; -fx-background-radius: 15;-fx-background-color: ffff");
+        btn4.setText("Modifier");
+        btn4.setTextFill(Paint.valueOf("#329C0D"));
+        btn4.setFont(Font.font("system", FontWeight.NORMAL, FontPosture.REGULAR, 13));
+    }
+     //-------------------- annonce admin------------------
+     public HBox addlineadmin(Activite act){
+         imgstyle();
+         hbpstyle();
+         hb2style();
+         btn1style();
+         btn2style();
+         hb1style();
+         lb1.setText(act.getSujet());
+         lb2.setText(String.valueOf(act.getDate()));
+         hbp.setPadding(new Insets(0,5,0,5));
+         hb2.getChildren().add(btn4);
+         hb2.getChildren().add(btn2);
+         hbp.getChildren().add(hb1);
+         hbp.getChildren().add(hb2);
+         hb1.getChildren().add(imgv);
+         hb1.getChildren().add(lb1);
+         hb1.getChildren().add(lb2);
+         hb2.setSpacing(20);
+         hbp.setHgrow(hb2, Priority.NEVER);
+         hbp.setHgrow(hb1, Priority.ALWAYS);
+         hbp.setOnMouseClicked(e->{
+         });
+
+         hbp.widthProperty().addListener(new ChangeListener<Number>() {
+             @Override public void changed(ObservableValue<? extends Number> observableValue, Number oldSceneWidth, Number newSceneWidth) {
+                 i =hb1.getWidth();
+                 double a = (i-lb1.getWidth()-lb2.getWidth()-53)/3;
+                 hb1.setSpacing(a<0?100:a);
+             }
+         });
+
+         return hbp;
+     }
+     //------------- add user -----------------------------
+    public HBox addlineuser(User user){
+        img3style();
+        hbpstyle();
+        hb2style();
+        btn1style();
+        btn2style();
+        hb1style();
+        lb3.setText(user.getNom());
+        lb4.setText(user.getEmail());
+        hbp.setPadding(new Insets(0,5,0,5));
+        hb2.getChildren().add(btn2);
+        hbp.getChildren().add(hb1);
+        hbp.getChildren().add(hb2);
+        hb1.getChildren().add(imgv3);
+        hb1.getChildren().add(lb3);
+        hb1.getChildren().add(lb4);
+        hb2.setSpacing(20);
+        hbp.setHgrow(hb2, Priority.NEVER);
+        hbp.setHgrow(hb1, Priority.ALWAYS);
+        hbp.setOnMouseClicked(e->{
+        });
+        hbp.widthProperty().addListener(new ChangeListener<Number>() {
+            @Override public void changed(ObservableValue<? extends Number> observableValue, Number oldSceneWidth, Number newSceneWidth) {
+                i =hb1.getWidth();
+                double a = (i-lb3.getWidth()-lb4.getWidth()-53)/3;
+                hb1.setSpacing(a<0?100:a);
+            }
+        });
+        return hbp;
+    }
      // ------------ add activites -------------------------
-    
     public HBox addline(Activite act){
-       
-             
      imgstyle();
-    hbpstyle();    
-   
+    hbpstyle();
     hb2style();
     btn1style();
     btn2style();
-
      hb1style();
      
      lb1.setText(act.getSujet());
      lb2.setText(String.valueOf(act.getDate()));
-
  //    imgv.setImage(new Image(new ByteArrayInputStream(act.getImage())));
-     
         // hbp------------
         hbp.setPadding(new Insets(0,5,0,5));
     //    hb1.setPadding(new Insets(0,0,0,0));
-        
         hb2.getChildren().add(btn1);
         hb2.getChildren().add(btn2);
         hbp.getChildren().add(hb1);
         hbp.getChildren().add(hb2);
       hb1.getChildren().add(imgv);
         hb1.getChildren().add(lb1);
-       hb1.getChildren().add(lb2);  
-
+       hb1.getChildren().add(lb2);
          hb2.setSpacing(20);
-      
         hbp.setHgrow(hb2, Priority.NEVER);
         hbp.setHgrow(hb1, Priority.ALWAYS);
              
@@ -206,47 +268,30 @@ double i =20;
     //   lb2.setText("hhhh");
     }
 });
-               
+
         return hbp;   
     }
-    
-    
-    
-            
             public HBox addlineann(Activite act){
-       
-             
-     imgstyle();  
-    hbpstyle();    
-   
-    hb2style();
-    btn3style();
-   
-
+      imgstyle();
+      hbpstyle();
+     hb2style();
+     btn3style();
      hb1style();
-     
-        lb1.setText(act.getSujet());
+     lb1.setText(act.getSujet());
      lb2.setText(String.valueOf(act.getDate()));
-
         // hbp------------
         hbp.setPadding(new Insets(0,5,0,5));
     //    hb1.setPadding(new Insets(0,0,0,0));
     btn3.setText("ajouter favorie");
-        
         hb2.getChildren().add(btn3);
-        
         hbp.getChildren().add(hb1);
         hbp.getChildren().add(hb2);
       hb1.getChildren().add(imgv);
         hb1.getChildren().add(lb1);
-       hb1.getChildren().add(lb2);  
-
+       hb1.getChildren().add(lb2);
          hb2.setSpacing(20);
-      
         hbp.setHgrow(hb2, Priority.NEVER);
         hbp.setHgrow(hb1, Priority.ALWAYS);
-             
-        
         hbp.setOnMouseClicked(e->{
     
         });

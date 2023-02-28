@@ -864,126 +864,130 @@
                           <content>
                             <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="546.0" prefWidth="718.0" style="-fx-background-color: white;">
                                  <children>
-                                    <VBox layoutX="-2.0" layoutY="3.0" prefHeight="426.0" prefWidth="95.0">
+                                    <HBox layoutX="21.0" prefWidth="450.0">
                                        <children>
-                                          <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Service">
-                                             <font>
-                                                <Font name="Constantia Bold Italic" size="14.0" />
-                                             </font>
-                                             <VBox.margin>
-                                                <Insets left="40.0" top="40.0" />
-                                             </VBox.margin>
-                                          </Text>
-                                          <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Sujet">
-                                             <font>
-                                                <Font name="Constantia Bold Italic" size="14.0" />
-                                             </font>
-                                             <VBox.margin>
-                                                <Insets left="40.0" top="40.0" />
-                                             </VBox.margin>
-                                          </Text>
-                                          <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Date">
-                                             <font>
-                                                <Font name="Constantia Bold Italic" size="14.0" />
-                                             </font>
-                                             <VBox.margin>
-                                                <Insets left="40.0" top="30.0" />
-                                             </VBox.margin>
-                                          </Text>
-                                          <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Lieu">
-                                             <font>
-                                                <Font name="Constantia Bold Italic" size="14.0" />
-                                             </font>
-                                             <VBox.margin>
-                                                <Insets left="40.0" top="40.0" />
-                                             </VBox.margin>
-                                          </Text>
-                                          <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Details">
-                                             <font>
-                                                <Font name="Constantia Bold Italic" size="14.0" />
-                                             </font>
-                                             <VBox.margin>
-                                                <Insets left="40.0" top="40.0" />
-                                             </VBox.margin>
-                                          </Text>
+                                          <VBox prefHeight="514.0" prefWidth="700.0">
+                                             <children>
+                                                <HBox alignment="CENTER_LEFT">
+                                                   <children>
+                                                      <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Sujet">
+                                                         <font>
+                                                            <Font name="Constantia Bold Italic" size="14.0" />
+                                                         </font>
+                                                      </Text>
+                                                      <TextField fx:id="sujet_txt" prefHeight="35.0" prefWidth="300.0" promptText="Entrer le sujet" style="-fx-border-color: #00dea3; -fx-background-radius: 10; -fx-border-radius: 10;">
+                                                         <font>
+                                                            <Font name="System Italic" size="12.0" />
+                                                         </font>
+                                                         <HBox.margin>
+                                                            <Insets left="60.0" />
+                                                         </HBox.margin>
+                                                      </TextField>
+                                                   </children>
+                                                   <VBox.margin>
+                                                      <Insets top="30.0" />
+                                                   </VBox.margin>
+                                                </HBox>
+                                                <HBox alignment="CENTER_LEFT">
+                                                   <children>
+                                                      <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Lieu">
+                                                         <font>
+                                                            <Font name="Constantia Bold Italic" size="14.0" />
+                                                         </font>
+                                                      </Text>
+                                                      <TextField fx:id="lieu_txt" prefHeight="35.0" prefWidth="300.0" promptText="Enter le lieu" style="-fx-border-color: #00dea3; -fx-background-radius: 10; -fx-border-radius: 10;">
+                                                         <font>
+                                                            <Font name="System Italic" size="12.0" />
+                                                         </font>
+                                                         <HBox.margin>
+                                                            <Insets left="65.0" />
+                                                         </HBox.margin>
+                                                      </TextField>
+                                                   </children>
+                                                   <VBox.margin>
+                                                      <Insets top="10.0" />
+                                                   </VBox.margin>
+                                                </HBox>
+                                                <HBox alignment="CENTER_LEFT" fillHeight="false" prefHeight="35.0" prefWidth="461.0">
+                                                   <children>
+                                                      <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Date">
+                                                         <font>
+                                                            <Font name="Constantia Bold Italic" size="14.0" />
+                                                         </font>
+                                                      </Text>
+                                                      <DatePicker fx:id="date_txt" prefHeight="35.0" prefWidth="310.0" promptText="Enter la date" style="-fx-border-color: #00dea3; -fx-background-radius: 10; -fx-border-radius: 10;">
+                                                         <HBox.margin>
+                                                            <Insets left="65.0" />
+                                                         </HBox.margin>
+                                                      </DatePicker>
+                                                   </children>
+                                                   <VBox.margin>
+                                                      <Insets top="10.0" />
+                                                   </VBox.margin>
+                                                </HBox>
+                                                <HBox alignment="CENTER_LEFT" prefHeight="35.0" prefWidth="408.0">
+                                                   <VBox.margin>
+                                                      <Insets top="20.0" />
+                                                   </VBox.margin>
+                                                   <children>
+                                                      <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Service">
+                                                         <font>
+                                                            <Font name="Constantia Bold Italic" size="14.0" />
+                                                         </font>
+                                                      </Text>
+                                                      <ComboBox fx:id="service_txt" editable="true" prefHeight="35.0" prefWidth="310.0" promptText="Saisir le service" style="-fx-border-color: #00dea3; -fx-border-radius: 10; -fx-background-radius: 10;">
+                                                         <HBox.margin>
+                                                            <Insets left="50.0" />
+                                                         </HBox.margin>
+                                                      </ComboBox>
+                                                   </children>
+                                                </HBox>
+                                                <HBox alignment="CENTER_LEFT">
+                                                   <children>
+                                                      <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Details">
+                                                         <font>
+                                                            <Font name="Constantia Bold Italic" size="14.0" />
+                                                         </font>
+                                                      </Text>
+                                                      <TextArea fx:id="details_txt" prefHeight="126.0" prefWidth="300.0" promptText="Description" style="-fx-border-color: #00dea3; -fx-background-radius: 10; -fx-border-radius: 10;">
+                                                         <font>
+                                                            <Font name="System Italic" size="12.0" />
+                                                         </font>
+                                                         <HBox.margin>
+                                                            <Insets left="50.0" />
+                                                         </HBox.margin>
+                                                      </TextArea>
+                                                   </children>
+                                                   <VBox.margin>
+                                                      <Insets top="10.0" />
+                                                   </VBox.margin>
+                                                </HBox>
+                                             </children>
+                                          </VBox>
                                        </children>
-                                    </VBox>
-                                    <VBox layoutX="52.0" prefHeight="513.0" prefWidth="635.0">
+                                    </HBox>
+                                    <VBox layoutX="514.0" layoutY="4.0" prefHeight="470.0" prefWidth="202.0">
                                        <children>
-                                          <TextField prefHeight="35.0" prefWidth="300.0" promptText="Entrer le sujet" style="-fx-border-color: #00dea3; -fx-background-radius: 10; -fx-border-radius: 10;">
-                                             <font>
-                                                <Font name="System Italic" size="12.0" />
-                                             </font>
-                                             <VBox.margin>
-                                                <Insets left="80.0" right="150.0" top="30.0" />
-                                             </VBox.margin>
-                                          </TextField>
-                                          <TextField prefHeight="35.0" prefWidth="300.0" promptText="Enter le lieu" style="-fx-border-color: #00dea3; -fx-background-radius: 10; -fx-border-radius: 10;">
-                                             <font>
-                                                <Font name="System Italic" size="12.0" />
-                                             </font>
-                                             <VBox.margin>
-                                                <Insets left="80.0" right="150.0" top="20.0" />
-                                             </VBox.margin>
-                                          </TextField>
-                                          <DatePicker prefHeight="35.0" prefWidth="405.0" promptText="Enter la date" style="-fx-border-color: #00dea3; -fx-background-radius: 10; -fx-border-radius: 10;">
-                                             <VBox.margin>
-                                                <Insets left="80.0" right="150.0" top="20.0" />
-                                             </VBox.margin>
-                                          </DatePicker>
-                                          <ComboBox editable="true" prefHeight="35.0" prefWidth="405.0" promptText="Saisir le service" style="-fx-border-color: #00dea3; -fx-border-radius: 10; -fx-background-radius: 10;">
-                                             <VBox.margin>
-                                                <Insets left="80.0" right="150.0" top="20.0" />
-                                             </VBox.margin>
-                                          </ComboBox>
-                                          <TextArea prefHeight="126.0" prefWidth="300.0" promptText="Description" style="-fx-border-color: #00dea3; -fx-background-radius: 10; -fx-border-radius: 10;">
-                                             <font>
-                                                <Font name="System Italic" size="12.0" />
-                                             </font>
-                                             <VBox.margin>
-                                                <Insets left="80.0" right="150.0" top="20.0" />
-                                             </VBox.margin>
-                                          </TextArea>
-                                          <Button mnemonicParsing="false" prefHeight="82.0" prefWidth="115.0" style="-fx-background-color: white;">
+                                          <Button fx:id="image_btn" mnemonicParsing="false" prefHeight="240.0" prefWidth="240.0" style="-fx-background-color: white;">
                                              <graphic>
-                                                <ImageView fitHeight="86.0" fitWidth="79.0" pickOnBounds="true" preserveRatio="true">
+                                                <ImageView fx:id="image_txt" fitHeight="86.0" fitWidth="79.0" pickOnBounds="true" preserveRatio="true">
                                                    <image>
                                                       <Image url="@impo.png" />
                                                    </image>
                                                 </ImageView>
                                              </graphic>
                                              <VBox.margin>
-                                                <Insets left="90.0" top="20.0" />
+                                                <Insets top="20.0" />
                                              </VBox.margin>
                                           </Button>
-                                          <HBox prefHeight="54.0" prefWidth="394.0">
-                                             <children>
-                                                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Choisir fichier ">
-                                                   <font>
-                                                      <Font name="System Bold Italic" size="14.0" />
-                                                   </font>
-                                                   <HBox.margin>
-                                                      <Insets left="90.0" />
-                                                   </HBox.margin>
-                                                </Text>
-                                                <Text fill="RED" strokeType="OUTSIDE" strokeWidth="0.0" text="PDF">
-                                                   <font>
-                                                      <Font name="System Bold Italic" size="14.0" />
-                                                   </font>
-                                                   <HBox.margin>
-                                                      <Insets />
-                                                   </HBox.margin>
-                                                </Text>
-                                                <Button mnemonicParsing="false" prefHeight="37.0" prefWidth="98.0" style="-fx-background-color: #32CD32; -fx-background-radius: 15;" text="Valider" textFill="WHITE">
-                                                   <font>
-                                                      <Font size="21.0" />
-                                                   </font>
-                                                   <HBox.margin>
-                                                      <Insets left="220.0" />
-                                                   </HBox.margin>
-                                                </Button>
-                                             </children>
-                                          </HBox>
+                                          <Button fx:id="valider_btn" mnemonicParsing="false" prefHeight="37.0" prefWidth="98.0" style="-fx-background-color: #32CD32; -fx-background-radius: 15;" text="Valider" textFill="WHITE">
+                                             <font>
+                                                <Font size="21.0" />
+                                             </font>
+                                             <VBox.margin>
+                                                <Insets left="50.0" top="90.0" />
+                                             </VBox.margin>
+                                          </Button>
                                        </children>
                                     </VBox>
                                  </children>
