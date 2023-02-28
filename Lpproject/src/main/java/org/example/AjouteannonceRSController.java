@@ -84,18 +84,7 @@ public class AjouteannonceRSController implements Initializable {
         return  img;
     }
 
-    public void modifierctivite(){
-        Activite activite= new Activite(sujet_txt.getText(),type_txt.getValue().toString(),lieu_txt.getText(),date_txt.getValue().toString(),details_txt.getText(),uri.toString());
-        Connexion cn = new Connexion();
-        try {
-            cn.createconnection();
-        } catch (InterruptedException e) {
-            throw new RuntimeException(e);
-        } catch (ExecutionException e) {
-            throw new RuntimeException(e);
-        }
-       // cn.updatactivite(1,activite.getIdActivite(), sujet_txt.getText(), activite.getLieu(),lieu_txt.getText(),date_txt.getValue().toString(),"");
-    }
+
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO

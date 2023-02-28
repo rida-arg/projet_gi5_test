@@ -60,6 +60,25 @@ public class ArchiveController implements Initializable {
     @FXML
     private ImageView image_txt;
 
+    @FXML
+    private TextField sujet_txt1;
+
+    @FXML
+    private ComboBox<?> type_txt1;
+
+    @FXML
+    private Button valider1;
+    @FXML
+    private TextField lieu_txt1;
+    @FXML
+    private Button imagebtn1;
+    @FXML
+    private DatePicker date_txt1;
+    @FXML
+    private ImageView image_txt1;
+    @FXML
+    private TextArea details_txt1;
+
     public void showDashboardRS(ActionEvent event) throws IOException {
         URL url = new File("src/main/java/org/example/DashboordRS.fxml").toURI().toURL();
         Parent root = FXMLLoader.load(url);
@@ -129,6 +148,9 @@ public class ArchiveController implements Initializable {
         return  img;
     }
     public void addrapport(){
+
+        // ---detActivite----//
+
         rapport r1 = new rapport("",sujet_txt.getText(),lieu_txt.getText(),1,service_txt.getValue().toString(),uri.toString());
         Connexion cn = new Connexion();
         try {
@@ -140,10 +162,25 @@ public class ArchiveController implements Initializable {
         }
         cn.addraport(1,r1);
     }
+    public void modifierrapport(){
+        //---------- detctivite-------pdf -------//
+     //   rapport r2 = new rapport("",sujet_txt1.getText(),lieu_txt1.getText(),1,type_txt1,);
+        Connexion cn = new Connexion();
+        try {
+            cn.createconnection();
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        } catch (ExecutionException e) {
+            throw new RuntimeException(e);
+        }
+       // cn.updatrapport();
+    }
+
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
         valider_btn.setOnAction(event -> addrapport());
         image_btn.setOnAction(event ->importimage(new Stage()) );
+        valider1.setOnAction(event -> modifierrapport());
     }
 }

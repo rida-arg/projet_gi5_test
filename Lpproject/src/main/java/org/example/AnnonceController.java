@@ -64,6 +64,22 @@ int compteur=0;
     private ComboBox<?> type_txt;
     @FXML
     private Tab tab2;
+    @FXML
+    private TextField sujet_txt1;
+    @FXML
+    private ComboBox<?> type_txt1;
+    @FXML
+    private Button valider1;
+    @FXML
+    private TextField lieu_txt1;
+    @FXML
+    private Button imagebtn1;
+    @FXML
+    private DatePicker date_txt1;
+    @FXML
+    private ImageView image_txt1;
+    @FXML
+    private TextArea details_txt1;
     public static void main(String[] args) {
         launch(args);
     }
@@ -132,6 +148,20 @@ int compteur=0;
 
      //   return imageBytes;
       return  img;
+    }
+
+    public void modifierctivite(){
+
+        Activite activite= new Activite(sujet_txt1.getText(),type_txt1.getValue().toString(),lieu_txt1.getText(),date_txt1.getValue().toString(),details_txt1.getText(),uri.toString());
+        Connexion cn = new Connexion();
+        try {
+            cn.createconnection();
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        } catch (ExecutionException e) {
+            throw new RuntimeException(e);
+        }
+        // cn.updatactivite(1,activite.getIdActivite(), sujet_txt.getText(), activite.getLieu(),lieu_txt.getText(),date_txt.getValue().toString(),"");
     }
    /* public byte[] importimage(Stage stage){
         byte[] imageBytes = new byte[0];
