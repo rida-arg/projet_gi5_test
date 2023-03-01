@@ -57,6 +57,10 @@ public class AjouteannonceRSController implements Initializable {
     public URI uri;
     @FXML
     private Button valider;
+    Stage stage;
+    public void showstage(Stage stage) {
+        this.stage = stage;
+    }
     public Image importimage(Stage stage){
         byte[] imageBytes = new byte[0];
         Image img = null;

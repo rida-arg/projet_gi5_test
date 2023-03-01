@@ -121,7 +121,7 @@
             </VBox>
             <VBox prefHeight="592.0" prefWidth="240.0">
                <children>
-                  <Button fx:id="imagebtn" mnemonicParsing="false" onAction="#importfile" prefHeight="240.0" prefWidth="240.0" style="-fx-background-color: EFF3FD;">
+                  <Button fx:id="imagebtn" mnemonicParsing="false" prefHeight="240.0" prefWidth="240.0" style="-fx-background-color: EFF3FD;">
                      <graphic>
                         <ImageView fx:id="image_txt" fitHeight="240.0" fitWidth="240.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -133,7 +133,7 @@
                         <Insets left="20.0" top="50.0" />
                      </VBox.margin>
                   </Button>
-                  <Button id="Ajouter" fx:id="valider" mnemonicParsing="false" prefHeight="37.0" prefWidth="98.0" style="-fx-background-color: #32CD32; -fx-background-radius: 15;" text="Valider" textFill="WHITE">
+                  <Button id="Ajouter" fx:id="valider" mnemonicParsing="false" prefHeight="37.0" prefWidth="98.0" style="-fx-background-color: #32CD32; -fx-background-radius: 15;" text="Update" textFill="WHITE">
                      <font>
                         <Font size="21.0" />
                      </font>
