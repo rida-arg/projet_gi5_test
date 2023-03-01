@@ -942,6 +942,23 @@
                                                       </ComboBox>
                                                    </children>
                                                 </HBox>
+                                                <HBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="187.0" prefHeight="35.0" prefWidth="408.0">
+                                                   <children>
+                                                      <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Categorie">
+                                                         <font>
+                                                            <Font name="Constantia Bold Italic" size="14.0" />
+                                                         </font>
+                                                      </Text>
+                                                      <ComboBox fx:id="categ_txt1" editable="true" prefHeight="35.0" prefWidth="310.0" promptText="Saisir le service" style="-fx-border-color: #00dea3; -fx-border-radius: 10; -fx-background-radius: 10;">
+                                                         <HBox.margin>
+                                                            <Insets left="50.0" />
+                                                         </HBox.margin>
+                                                      </ComboBox>
+                                                   </children>
+                                                   <VBox.margin>
+                                                      <Insets top="20.0" />
+                                                   </VBox.margin>
+                                                </HBox>
                                                 <HBox alignment="CENTER_LEFT">
                                                    <children>
                                                       <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Details">
@@ -962,6 +979,18 @@
                                                       <Insets top="10.0" />
                                                    </VBox.margin>
                                                 </HBox>
+                                                <Button fx:id="pdf_btn" mnemonicParsing="false" prefHeight="110.0" prefWidth="180.0" style="-fx-background-color: white;">
+                                                   <graphic>
+                                                      <ImageView fx:id="pdf_txt" fitHeight="86.0" fitWidth="79.0" pickOnBounds="true" preserveRatio="true">
+                                                         <image>
+                                                            <Image url="@impo.png" />
+                                                         </image>
+                                                      </ImageView>
+                                                   </graphic>
+                                                   <VBox.margin>
+                                                      <Insets left="20.0" top="20.0" />
+                                                   </VBox.margin>
+                                                </Button>
                                              </children>
                                           </VBox>
                                        </children>

@@ -10,6 +10,7 @@ import java.io.IOException;
 import java.net.URI;
 import java.net.URL;
 import java.nio.file.Files;
+import java.util.Base64;
 import java.util.ResourceBundle;
 import java.util.concurrent.ExecutionException;
 
@@ -35,6 +36,8 @@ import static javafx.application.Application.launch;
  */
 public class ArchiveController implements Initializable {
 
+    String Imag;
+    String pdf;
     public static void main(String[] args) {
         launch(args);
     }
@@ -79,6 +82,13 @@ public class ArchiveController implements Initializable {
     @FXML
     private TextArea details_txt1;
 
+    @FXML
+    private Button pdf_btn;
+
+    @FXML
+    private ComboBox<?> categ_txt1;
+    @FXML
+    private ImageView pdf_txt;
     public void showDashboardRS(ActionEvent event) throws IOException {
         URL url = new File("src/main/java/org/example/DashboordRS.fxml").toURI().toURL();
         Parent root = FXMLLoader.load(url);
@@ -121,12 +131,45 @@ public class ArchiveController implements Initializable {
         stage.setScene(scene);
         stage.show();
     }
+
+    public Image importpdf(Stage stage){
+        byte[] imageBytes = new byte[0];
+        Image img = null;
+        FileChooser fileChooser = new FileChooser();
+        fileChooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("PDF", "*.pdf"));
+        File pngImage = fileChooser.showOpenDialog(stage);
+
+
+        if (pngImage != null) {
+            try {
+                imageBytes = Files.readAllBytes(pngImage.toPath());
+            } catch (IOException e) {
+                System.err.println("File couldn't be read to byte[].");
+            }
+        }
+
+        img = new Image(new ByteArrayInputStream(imageBytes));
+        System.out.println(imageBytes.length);
+        pdf_txt.setImage(img);
+        test = imageBytes;
+
+        pdf = Base64.getEncoder().encodeToString(imageBytes);
+
+
+        System.out.println(imageBytes.clone().toString());
+
+        //   return imageBytes;
+        return  img;
+    }
+
+
     public Image importimage(Stage stage){
         byte[] imageBytes = new byte[0];
         Image img = null;
         FileChooser fileChooser = new FileChooser();
         fileChooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("PNG", "*.png"));
         File pngImage = fileChooser.showOpenDialog(stage);
+
         uri = pngImage.toURI();
         uri.toString();
         System.err.println(uri+"   chof hada");
@@ -144,6 +187,11 @@ public class ArchiveController implements Initializable {
         image_txt.setImage(img);
         test = imageBytes;
 
+        Imag = Base64.getEncoder().encodeToString(imageBytes);
+
+
+        System.out.println(imageBytes.clone().toString());
+
         //   return imageBytes;
         return  img;
     }
@@ -151,7 +199,7 @@ public class ArchiveController implements Initializable {
 
         // ---detActivite----//
 
-        rapport r1 = new rapport("",sujet_txt.getText(),lieu_txt.getText(),1,service_txt.getValue().toString(),uri.toString());
+        rapport r1 = new rapport(sujet_txt.getText(),categ_txt1.getValue().toString(),lieu_txt.getText(),date_txt.getValue().toString(),details_txt.getText(),Imag,service_txt.getValue().toString(),pdf);
         Connexion cn = new Connexion();
         try {
             cn.createconnection();
@@ -181,6 +229,8 @@ public class ArchiveController implements Initializable {
         // TODO
         valider_btn.setOnAction(event -> addrapport());
         image_btn.setOnAction(event ->importimage(new Stage()) );
+        pdf_btn.setOnAction(event ->importpdf(new Stage()) );
+
         valider1.setOnAction(event -> modifierrapport());
     }
 }

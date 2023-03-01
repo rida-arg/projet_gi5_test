@@ -10,9 +10,11 @@ package org.example;
  */
 public class rapport extends Activite{
     String pdf;
-    public rapport(String detActivite, String sujet, String lieu, int idUser, String Categorie,String pdf) {
-        super(detActivite, sujet, lieu, idUser, Categorie);
+    String service;
+    public rapport(String sujet, String Categorie, String lieu, String date, String details,String image,String service,String pdf) {
+        super(sujet, Categorie,lieu,  date,details,image);
         this.pdf = pdf;
+        this.service = service;
     }
       public String getPdf() {
         return pdf;

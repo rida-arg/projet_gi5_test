@@ -209,7 +209,7 @@ public class AnnonceController implements Initializable {
             throw new RuntimeException(e);
         }
         // ****************************//////////////////
-        try {
+       try {
             ArrayList<String> cate = cn.getAllCategorie();
             ObservableList<String> dataCat = FXCollections.observableArrayList(cate);
             //  data.addAll(servs);
